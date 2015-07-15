@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<title>Multitrack audio</title>
+		<style>
+			a:hover {
+				cursor: pointer;
+			}
+		</style>
+		<script>
+			function play() { 
+				topt.play(); 
+				back.play();
+			} 
+
+			function pause() { 
+				topt.pause();
+				back.pause();
+			}
+
+			function restart() {
+				topt.load();
+				back.load();
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Multi-track audio player</h1>
+		<p>Use overall controls to play both tracks in time with each other or control them individually</p>
+		<h2>Controls</h2>
+			<a onclick="restart()">&#10226;</a>&nbsp;
+			<a onclick="play()">&#9658;</a>&nbsp;
+			<a onclick="pause()">&#10073;&#10073;</a><br/>
+		<h2>Vocal part only</h2>
+		<audio id="toptrack" controls>
+			<source src="toptrack.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+			</audio><br/><br/>
+		<a href="toptrack.mp3">Download vocal track</a>
+		<h2>Backing track</h2>
+		<audio id="backing" controls>
+			<source src="backing.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+			</audio><br/><br/>
+		<a href="backing.mp3">Download backing track</a>
+		<script>
+			var topt = document.getElementById("toptrack"); 
+			var back = document.getElementById("backing"); 
+		</script>
+	</body>
+</html>
